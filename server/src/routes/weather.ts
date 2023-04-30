@@ -25,10 +25,14 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const weatherData = req.body;
 
+    const failedMetrics = [];
     for (const [metricId, metricValue] of Object.entries(weatherData)) {
         const metricValueNum = Number(metricValue);
-        await sendData(metricId, metricValueNum, 'weather');
+        const result = await sendData(metricId, metricValueNum, 'weather');
+        if (!result) {
+            failedMetrics.push(metricId);
+        }
     };
-    res.send("Hello from backend");
+    res.send({ status: true, failedMetrics});
 });
 export default router;

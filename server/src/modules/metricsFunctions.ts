@@ -87,11 +87,11 @@ async function getAirQualityMetrics(): Promise<interf.AirQualityResponse> {
  * API returns hourly data for first 4 days from today, that's why we pick only first 24 values
  */
 function extractDailyAQMetrics(data: interf.AirQualityResponse): Object {
-    const pm10= data.hourly.pm10.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24;
-    const carbonMonoxide = data.hourly.carbon_monoxide.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24;
-    const ozone = data.hourly.ozone.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24;
-    const dust = data.hourly.dust.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24;
-    const uvIndex = data.hourly.uv_index.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24;
+    const pm10 = Number((data.hourly.pm10.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24).toFixed(4));
+    const carbonMonoxide = Number((data.hourly.carbon_monoxide.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24).toFixed(4));
+    const ozone = Number((data.hourly.ozone.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24).toFixed(4));
+    const dust = Number((data.hourly.dust.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24).toFixed(4));
+    const uvIndex = Number((data.hourly.uv_index.slice(0, 24).reduce((acc: any, curr: any) => acc + curr, 0) / 24).toFixed(4));
 
     const metrics: interf.AirQualityMetric = {
         pm10,
@@ -138,12 +138,14 @@ async function sendData(metricId: string, metricValue: number, metricLibrary: st
         const status = response.data.status === 'OK' ? true : false;
         if (status) {
             logger.info('Successfully sent data to Databox', { success: true, metricSent: metricId });
+            return true;
         } else {
             logger.error('Error while sending data to Databox, request status false', { success: false, metricSent: metricId });
+            return false;
         }
     } catch (error: any) {
         logger.error('Request failed while sending data to Databox', { RespErrMsg: error.message, success: false });
-        return error;
+        return false;
     }
     
 }
