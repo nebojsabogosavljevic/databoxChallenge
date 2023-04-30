@@ -5,10 +5,13 @@
 <script>
 import Metrics from './components/MetricsView.vue';
 
+
 export default {
   name: 'App',
   components: {
     Metrics,
+  },
+  methods: {
   }
 }
 </script>

@@ -47,7 +47,9 @@
 import getMetrics from '../services/getMetrics';
 import postMetrics from '../services/postMetrics';
 import Chart from 'chart.js/auto';
+import newsData from '../../public/data/newsMetrics.json';
 import weatherData from '../../public/data/weatherMetrics.json';
+import { useToast } from 'vue-toast-notification';
 
 export default {
     data() {
@@ -60,32 +62,59 @@ export default {
         weatherMetrics: [],
         chartWeather: null,
         chartNews: null,
+        newsData: [],
         weatherData: [],
       };
     },
     mounted() {
         this.weatherData = weatherData;
+        this.newsData = newsData;
     },
     methods: {
         padTo2Digits(num) {
             return num.toString().padStart(2, '0');
         },
+        toastMessage(msg, type) {
+            const $toast = useToast();
+            $toast.open({
+                message: msg,
+                type: type,
+            });
+        },
         async sendData() {
-            if (!this.api2Metrics) {
-                alert('Please fetch metrics first');
+            if (!this.api2Metrics || !this.api1Metrics) {
+                this.toastMessage('Please fetch metrics first', 'warning');
                 return;
             }
             this.sendingData = true;
-            const response = await postMetrics.postWeatherMetrics(this.api2Metrics);
+            const responseWeather = await postMetrics.postWeatherMetrics(this.api2Metrics);
+            const responseNews = await postMetrics.postWeatherMetrics(this.api1Metrics);
             this.sendingData = false;
-            console.log(response);
+
+            if (responseWeather.status && !responseWeather.failedMetrics.length && responseNews.status && !responseNews.failedMetrics.length) {
+                this.toastMessage('Metrics sent successfully', 'success');
+            } else {
+                this.toastMessage('Error sending metrics', 'error');
+            }
         },
         async fetchData() {
-            // const responseNews = await getMetrics.getNewsMetrics();
+            const responseNews = await getMetrics.getNewsMetrics();
             const responseWeather = await getMetrics.getWeatherMetrics();
 
-            // this.api1Metrics = responseNews;
+            if (responseWeather && responseNews) {
+                this.toastMessage('Metrics fetched successfully', 'success');
+            } else {
+                this.toastMessage('Error fetching metrics', 'error');
+            }
+            this.api1Metrics = responseNews;
             this.api2Metrics = responseWeather;
+
+            Object.keys(responseNews).forEach((key) => {
+                this.newsMetrics.push({
+                    name: key,
+                    value: responseNews[key],
+                });
+            });
 
             Object.keys(responseWeather).forEach((key) => {
                 this.weatherMetrics.push({
@@ -93,7 +122,7 @@ export default {
                     value: responseWeather[key],
                 });
             });
-            this.renderWeatherChart(responseWeather);
+            this.renderWeatherChart(responseNews);
             this.renderNewsChart(responseWeather);
         },
         renderWeatherChart(currDayData) {
@@ -171,51 +200,51 @@ export default {
             let [data, labels] = [[], []];
             const now = new Date();
             const currentDate = `${now.getDate()}/${this.padTo2Digits(now.getMonth())}`
-            const [dataPM10, dataOzone, dataDust, dataUV, dataCO] = [[], [], [], [], []];
-            Object.keys(this.weatherData).forEach((data) => {
+            const [dataKeywordHits, dataNumOfPages, dataNumOfAuthors, dataTwitterAccounts, dataNumOfCountries] = [[], [], [], [], []];
+            Object.keys(this.newsData).forEach((data) => {
                 labels.push(data.split('-')[1]);
-                dataPM10.push(this.weatherData[data].pm10);
-                dataOzone.push(this.weatherData[data].ozone);
-                dataDust.push(this.weatherData[data].dust);
-                dataUV.push(this.weatherData[data].uvIndex);
-                dataCO.push(this.weatherData[data].carbonMonoxide);
+                dataKeywordHits.push(this.newsData[data].totalKeywordHits);
+                dataNumOfPages.push(this.newsData[data].totalNumberOfPages);
+                dataNumOfAuthors.push(this.newsData[data].numberOfAuthors);
+                dataTwitterAccounts.push(this.newsData[data].numberOfTwitterAccounts);
+                dataNumOfCountries.push(this.newsData[data].numberOfCountries);
             });
 
             labels.push(currentDate);
-            dataPM10.push(currDayData.pm10);
-            dataOzone.push(currDayData.ozone);
-            dataDust.push(currDayData.dust);
-            dataUV.push(currDayData.uvIndex);
-            dataCO.push(currDayData.carbonMonoxide);
+            dataKeywordHits.push(currDayData.totalKeywordHits);
+            dataNumOfPages.push(currDayData.totalNumberOfPages);
+            dataNumOfAuthors.push(currDayData.numberOfAuthors);
+            dataTwitterAccounts.push(currDayData.numberOfTwitterAccounts);
+            dataNumOfCountries.push(currDayData.numberOfCountries);
 
             data.push(
                 {
-                    label: 'API 1 Metric - PM10',
-                    data: dataPM10,
+                    label: 'API 2 Metric - Total Keywords Hits',
+                    data: dataKeywordHits,
                     borderColor: '#3e95cd',
                     fill: false,
                 }, 
                 {
-                    label: 'API 1 Metric - Ozone',
-                    data: dataOzone,
+                    label: 'API 2 Metric - Total Number Of Pages',
+                    data: dataNumOfPages,
                     borderColor: '#8e5ea2',
                     fill: false,
                 }, 
                 {
-                    label: 'API 1 Metric - Dust',
-                    data: dataDust,
+                    label: 'API 2 Metric - Number Of Authors',
+                    data: dataNumOfAuthors,
                     borderColor: '#3cba9f',
                     fill: false,
                 }, 
                 {
-                    label: 'API 1 Metric - UV Index',
-                    data: dataUV,
+                    label: 'API 2 Metric - Number Of Twitter Accounts',
+                    data: dataTwitterAccounts,
                     borderColor: '#e8c3b9',
                     fill: false,
                 }, 
                 {
-                    label: 'API 1 Metric - Carbon Monoxide',
-                    data: dataCO,
+                    label: 'API 2 Metric - Number Of Countries',
+                    data: dataNumOfCountries,
                     borderColor: '#c45850',
                     fill: false,
                 }

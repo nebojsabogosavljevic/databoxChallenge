@@ -1,0 +1,194 @@
+{
+    "Saturday-01/04": {
+        "numberOfAuthors": "441",
+        "numberOfCountries": "68",
+        "numberOfTwitterAccounts": "7",
+        "totalKeywordHits": "8724",
+        "totalNumberOfPages": "89"
+    },
+    "Suday-02/04": {
+        "numberOfAuthors": "225",
+        "numberOfCountries": "87",
+        "numberOfTwitterAccounts": "49",
+        "totalKeywordHits": "6911",
+        "totalNumberOfPages": "73"
+    },
+    "Monday-03/04": {
+        "numberOfAuthors": "865",
+        "numberOfCountries": "46",
+        "numberOfTwitterAccounts": "47",
+        "totalKeywordHits": "7777",
+        "totalNumberOfPages": "206"
+    },
+    "Tuesday-04/04": {
+        "numberOfAuthors": "246",
+        "numberOfCountries": "39",
+        "numberOfTwitterAccounts": "69",
+        "totalKeywordHits": "5505",
+        "totalNumberOfPages": "74"
+    },
+    "Wednesday-05/04": {
+        "numberOfAuthors": "759",
+        "numberOfCountries": "79",
+        "numberOfTwitterAccounts": "38",
+        "totalKeywordHits": "8035",
+        "totalNumberOfPages": "207"
+    },
+    "Thursday-06/04": {
+        "numberOfAuthors": "800",
+        "numberOfCountries": "59",
+        "numberOfTwitterAccounts": "24",
+        "totalKeywordHits": "9358",
+        "totalNumberOfPages": "226"
+    },
+    "Friday-07/04": {
+        "numberOfAuthors": "541",
+        "numberOfCountries": "41",
+        "numberOfTwitterAccounts": "27",
+        "totalKeywordHits": "7217",
+        "totalNumberOfPages": "138"
+    },
+    "Saturday-08/04": {
+        "numberOfAuthors": "943",
+        "numberOfCountries": "76",
+        "numberOfTwitterAccounts": "85",
+        "totalKeywordHits": "6647",
+        "totalNumberOfPages": "94"
+    },
+    "Sunday-09/04": {
+        "numberOfAuthors": "492",
+        "numberOfCountries": "71",
+        "numberOfTwitterAccounts": "38",
+        "totalKeywordHits": "5832",
+        "totalNumberOfPages": "60"
+    },
+    "Monday-10/04": {
+        "numberOfAuthors": "107",
+        "numberOfCountries": "22",
+        "numberOfTwitterAccounts": "29",
+        "totalKeywordHits": "8922",
+        "totalNumberOfPages": "211"
+    },
+    "Tuesday-11/04": {
+        "numberOfAuthors": "884",
+        "numberOfCountries": "54",
+        "numberOfTwitterAccounts": "3",
+        "totalKeywordHits": "7599",
+        "totalNumberOfPages": "108"
+    },
+    "Wednesday-12/04": {
+        "numberOfAuthors": "798",
+        "numberOfCountries": "52",
+        "numberOfTwitterAccounts": "21",
+        "totalKeywordHits": "6586",
+        "totalNumberOfPages": "186"
+    },
+    "Thursday-13/04": {
+        "numberOfAuthors": "615",
+        "numberOfCountries": "47",
+        "numberOfTwitterAccounts": "59",
+        "totalKeywordHits": "5311",
+        "totalNumberOfPages": "171"
+    },
+    "Friday-14/04": {
+        "numberOfAuthors": "922",
+        "numberOfCountries": "50",
+        "numberOfTwitterAccounts" : "29",
+        "totalKeywordHits":   "10000",
+        "totalNumberOfPages": "200"
+    },
+    "Saturday-15/04": {
+        "numberOfAuthors": "989",
+        "numberOfCountries": "45",
+        "numberOfTwitterAccounts" : "21",
+        "totalKeywordHits":   "8900",
+        "totalNumberOfPages": "140"
+    },
+    "Sunday-16/04": {
+        "numberOfAuthors": "884",
+        "numberOfCountries": "54",
+        "numberOfTwitterAccounts": "3",
+        "totalKeywordHits": "7599",
+        "totalNumberOfPages": "108"
+    },
+    "Monday-17/04": {
+        "numberOfAuthors": "1010",
+        "numberOfCountries": "55",
+        "numberOfTwitterAccounts" : "27",
+        "totalKeywordHits":   "12000",
+        "totalNumberOfPages": "240"
+    },
+    "Tuesday-18/04": {
+        "numberOfAuthors": "1024",
+        "numberOfCountries": "59",
+        "numberOfTwitterAccounts" : "30",
+        "totalKeywordHits":   "10185",
+        "totalNumberOfPages": "213"
+    },
+    "Wednesday-19/04": {
+        "numberOfAuthors": "884",
+        "numberOfCountries": "54",
+        "numberOfTwitterAccounts": "3",
+        "totalKeywordHits": "7599",
+        "totalNumberOfPages": "108"
+    },
+    "Thursday-20/04": {
+        "numberOfAuthors": "550",
+        "numberOfCountries": "57",
+        "numberOfTwitterAccounts" : "67",
+        "totalKeywordHits":   "11000",
+        "totalNumberOfPages": "240"
+    },
+    "Friday-21/04": {
+        "numberOfAuthors": "500",
+        "numberOfCountries": "57",
+        "numberOfTwitterAccounts" : "29",
+        "totalKeywordHits":   "10000",
+        "totalNumberOfPages": "200"
+    },
+    "Saturday-22/04": {
+        "numberOfAuthors": "450",
+        "numberOfCountries": "35",
+        "numberOfTwitterAccounts" : "15",
+        "totalKeywordHits":   "7830",
+        "totalNumberOfPages": "135"
+    },
+    "Sunday-23/04": {
+        "numberOfAuthors": "1020",
+        "numberOfCountries": "70",
+        "numberOfTwitterAccounts" : "17",
+        "totalKeywordHits":   "13200",
+        "totalNumberOfPages": "305"
+    },
+    "Monday-24/04": {
+        "numberOfAuthors": "897",
+        "numberOfCountries": "47",
+        "numberOfTwitterAccounts" : "66",
+        "totalKeywordHits":   "8909",
+        "totalNumberOfPages": "223"
+    }, "Tuesday-25/04": {
+        "numberOfAuthors": "875",
+        "numberOfCountries": "44",
+        "numberOfTwitterAccounts" : "37",
+        "totalKeywordHits":   "11200",
+        "totalNumberOfPages": "231"
+    }, "Wednesday-26/04": {
+        "numberOfAuthors": "1021",
+        "numberOfCountries": "63",
+        "numberOfTwitterAccounts" : "19",
+        "totalKeywordHits":   "12300",
+        "totalNumberOfPages": "260"
+    }, "Thursday-27/04": {
+        "numberOfAuthors": "921",
+        "numberOfCountries": "60",
+        "numberOfTwitterAccounts" : "25",
+        "totalKeywordHits":   "10200",
+        "totalNumberOfPages": "250"
+    }, "Friday-28/04": {
+        "numberOfAuthors": "930",
+        "numberOfCountries": "49",
+        "numberOfTwitterAccounts" : "33",
+        "totalKeywordHits":   "10100",
+        "totalNumberOfPages": "220"
+    }
+}
