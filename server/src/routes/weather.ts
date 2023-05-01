@@ -1,6 +1,6 @@
 import express from 'express';
 import axios from 'axios';
-import * as interf from '../../types/interfaces';
+import * as interf from '../interfaces';
 import logger from '../modules/logger';
 import { extractDailyAQMetrics, sendData } from '../modules/metricsFunctions';
 

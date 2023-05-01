@@ -1,10 +1,6 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-import { resolve } from 'path'
-import * as interf from '../../types/interfaces'
-import { connectToDatabase } from '../services/database.service';
+import * as interf from '../interfaces'
 import logger from '../modules/logger';
-import { DateTime } from 'luxon';
 
 async function getBitcoinArticlesMetrics(): Promise<interf.ArticleResponse> {
     const options = {
