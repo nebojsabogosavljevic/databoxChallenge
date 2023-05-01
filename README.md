@@ -9,7 +9,19 @@ Besides that tests and logger should be present inside project.
 docker-compose up
 ```
 
-After starting you should be able to access project at http://localehost:8080
+After starting you should be able to access project at http://localhost:8080/
+Project can be started manually too, with bellow steps
+```
+cd server
+npm i
+npm run dev
+```
+```
+cd client
+npm i
+npm run serve
+```
+
 
 ## Usage
 
